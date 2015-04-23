@@ -22,4 +22,8 @@ echo "
   MaxPaths 1024
 </configuration>
 " > $AFCONF
+
+update-rc.d afcollector enable
+
 /etc/init.d/afcollector restart
+
