@@ -61,6 +61,20 @@ Installation instructions for different Vagrant providers:
     ```
 
     Note: If you encounter problems with VirtualBox networking try installing [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) as suggested by [Issue 202](https://github.com/cloudfoundry/bosh-lite/issues/202).
+    
+1. Configure your AppFirst credential information to enable gathering collector information from the BOSH Lite box, by setting the appropriate environmental variables:
+
+	```
+	# Tenant ID (Mandatory)
+	export AF_TENANT_ID=XXXXX
+	
+	# Frontend URL (Optional, defaults to frontend.appfirst.com)
+	export AF_FRONT_URL=frontend.server.com
+	```
+	
+	Without the tenant ID, the AppFirst configuration will not be provisioned, but the box will still boot up. 
+	
+	In order for the collector to work, a network connection that can reach AppFirst's servers is required.
 
 1. Start Vagrant from the base directory of this repository, which contains the Vagrantfile. The most recent version of the BOSH Lite boxes will be downloaded by default from the Vagrant Cloud when you run `vagrant up`. If you have already downloaded an older version you will be warned that your version is out of date. You can use the latest version by running `vagrant box update`.
 
