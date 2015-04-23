@@ -9,8 +9,17 @@ test -z $URLFRONT || URLFRONT=frontend.appfirst.com
 
 echo "
 <configuration>
-   URLfront $URLFRONT 
-   Tenant $TENANT
+  URLfront $URLFRONT 
+  Tenant $TENANT
+
+  CollectPeriod 20
+  Profile 0
+  Enabled True
+  Include
+  DataDir /opt/AppFirst/data
+  Exclude
+  DiskSpace 512
+  MaxPaths 1024
 </configuration>
 " > $AFCONF
 /etc/init.d/afcollector restart
